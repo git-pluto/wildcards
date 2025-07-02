@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtbykosj83wpn"]
+
+[ext_resource type="Script" uid="uid://sepm14u1bdy" path="res://critters/critter_body.gd" id="1_8kaqh"]
+
+[node name="critter body" type="Node"]
+script = ExtResource("1_8kaqh")
+
+[node name="effects" type="Node" parent="."]
+
+[node name="actions" type="Node" parent="."]

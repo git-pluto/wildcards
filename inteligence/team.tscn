@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://itfxpgtbes0b"]
+
+[ext_resource type="Script" uid="uid://dgextyr6xejf5" path="res://inteligence/team.gd" id="1_w03yu"]
+
+[node name="team" type="Node"]
+script = ExtResource("1_w03yu")
+
+[node name="deck" type="Node" parent="."]
+
+[node name="hand" type="Node" parent="."]
+
+[node name="field" type="Node" parent="."]
+
+[node name="discard" type="Node" parent="."]

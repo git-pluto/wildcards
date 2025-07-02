@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="wildcards again"
+run/main_scene="res://inteligence/administrator.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0.0728426, 0.0728426, 0.0728426, 1)
+boot_splash/image="res://critter sprites/decorator crab.png"
+config/icon="res://critter sprites/decorator crab.png"
+
+[autoload]
+
+Global="*res://inteligence/global.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[input]
+
+f11={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.18359, 0.18359, 0.18359, 1)

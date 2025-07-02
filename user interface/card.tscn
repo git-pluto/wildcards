@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://qw68xt77n10a"]
+
+[ext_resource type="Texture2D" uid="uid://2pl1la8mcigt" path="res://critter sprites/blank.png" id="1_ndtcu"]
+[ext_resource type="Texture2D" uid="uid://l43skxdjpokf" path="res://critter sprites/decorator crab.png" id="2_ga155"]
+
+[node name="card" type="Node2D"]
+
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(0, -200)
+
+[node name="shadow" type="Sprite2D" parent="pivot"]
+modulate = Color(0, 0, 0, 0.701961)
+scale = Vector2(1.02, 1.015)
+texture = ExtResource("1_ndtcu")
+
+[node name="blank" type="Sprite2D" parent="pivot"]
+clip_children = 2
+texture = ExtResource("1_ndtcu")
+
+[node name="sprite" type="Sprite2D" parent="pivot/blank"]
+position = Vector2(11, -13)
+texture = ExtResource("2_ga155")

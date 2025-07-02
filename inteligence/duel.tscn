@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://davmr456khec2"]
+
+[ext_resource type="Script" uid="uid://d0kq01dtwpyw7" path="res://inteligence/duel.gd" id="1_4xkd8"]
+
+[node name="duel" type="Node"]
+script = ExtResource("1_4xkd8")
