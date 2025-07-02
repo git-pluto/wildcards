@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bywchuvlj04iy"
-path="res://.godot/imported/cheerleader crab.png-bc31456a3ac0ad7bd5fc9f3256eee0e7.ctex"
+uid="uid://cwl68tg1smq0e"
+path="res://.godot/imported/firefly.png-781a76bf0d7e97d695c397de82c915e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://critter sprites/cheerleader crab.png"
-dest_files=["res://.godot/imported/cheerleader crab.png-bc31456a3ac0ad7bd5fc9f3256eee0e7.ctex"]
+source_file="res://critter sprites/firefly.png"
+dest_files=["res://.godot/imported/firefly.png-781a76bf0d7e97d695c397de82c915e6.ctex"]
 
 [params]
 

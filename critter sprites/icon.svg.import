@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bywchuvlj04iy"
-path="res://.godot/imported/cheerleader crab.png-bc31456a3ac0ad7bd5fc9f3256eee0e7.ctex"
+uid="uid://dxkedai0uqlwo"
+path="res://.godot/imported/icon.svg-6d76faa852d968a2765485cfc6995502.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://critter sprites/cheerleader crab.png"
-dest_files=["res://.godot/imported/cheerleader crab.png-bc31456a3ac0ad7bd5fc9f3256eee0e7.ctex"]
+source_file="res://critter sprites/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-6d76faa852d968a2765485cfc6995502.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
