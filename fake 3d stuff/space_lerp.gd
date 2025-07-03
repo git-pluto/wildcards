@@ -1,23 +1,29 @@
 extends lerp_ease
 class_name space_lerp
 
+# obj, property, end, ease, duration, tags, timestart
+
 func _process(delta: float) -> void:
-	var a = lerp(0, 1,eas.call((g.t()-timestart)/duration))-lerp(0, 1,eas.call((g.t()-delta-timestart)/duration))
-	match property:
-		0: sc.translate(obj,a*end)
-		1: sc.orbit(obj,a*end)
+	for i in active:
+		var a = lerp(0, 1,i[3].call((g.t()-i[6])/i[4]))-lerp(0, 1,i[3].call((g.t()-delta-i[6])/i[4]))
+		match i[1]:
+			0: sc.translate(i[0],a*i[2])
+			2: sc.orbit(i[0],a*i[2])
 	reading()
 
 func setup(arr: Array):
-	obj = arr[0]
 	match arr[1]:
 		"translation":
-			property = 0
+			arr[1] = propers.position
 		"orbit":
-			property = 1
+			arr[1] = propers.rotation
+		"orbit_degrees":
+			arr[1] = propers.rotation
+			arr[2]*=PI/180
 		_:
 			print("invalid property")
-	end = arr[2]
-	eas = arr[3]
-	duration = arr[4]
-	timestart = g.t()
+	arr[6] = g.t()
+	active.append(arr)
+	if len(queue):
+		if queue.front()[5].has("parallel"):
+			setup(queue.pop_front())

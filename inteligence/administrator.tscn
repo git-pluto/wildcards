@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://fbh4okhfuvp6"]
+[gd_scene load_steps=4 format=3 uid="uid://fbh4okhfuvp6"]
 
 [ext_resource type="Script" uid="uid://dlp02t5ilsvxn" path="res://inteligence/administrator.gd" id="1_uqdyd"]
+[ext_resource type="Script" uid="uid://7desi32smifg" path="res://user interface/sprite_root.gd" id="2_8tk7u"]
 [ext_resource type="PackedScene" uid="uid://itfxpgtbes0b" path="res://inteligence/team.tscn" id="7_jbqaw"]
 
 [node name="administrator" type="Node"]
 script = ExtResource("1_uqdyd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="sprite_root" type="Node2D" parent="."]
+script = ExtResource("2_8tk7u")
 
 [node name="logic" type="Node" parent="."]
 
@@ -15,5 +19,3 @@ script = ExtResource("1_uqdyd")
 [node name="team2" parent="logic" instance=ExtResource("7_jbqaw")]
 
 [node name="duels" type="Node" parent="logic"]
-
-[node name="Node2D" type="Node2D" parent="."]
