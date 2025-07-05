@@ -8,8 +8,8 @@ func _ready() -> void:
 	sc.translate(a, Vector3(0,0,100))
 	var lep:additive_lerp = calc.setLerp("add")
 	lep.add(a,"scale",Vector2(0,2),calc.jump,1,["loop head"])
-	lep.add(a,"scale",Vector2(2,0),calc.jump,1,["loop tail",2])
-	
+	lep.add(a,"scale",Vector2(2,0),calc.jump,1,["loop tail",2, "parallel"])
+	lep.start()
 
 func movecamera(vec):
 	for i in stuff:

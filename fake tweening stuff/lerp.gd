@@ -47,9 +47,11 @@ func reading():
 			queue_free()
 
 func add(xObj, xProperty, xEnd, xEase, xDuration, Tags):
-	if not len(active):
-		setup([xObj, xProperty, xEnd, xEase, xDuration, Tags])
 	queue.append([xObj, xProperty, xEnd, xEase, xDuration, Tags])
+
+func start():
+	if not len(active):
+		setup(queue[0].duplicate())
 
 func setup(arr: Array):
 	match arr[1]:
