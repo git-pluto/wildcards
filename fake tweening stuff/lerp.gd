@@ -47,7 +47,12 @@ func reading():
 			queue_free()
 
 func add(xObj, xProperty, xEnd, xEase, xDuration, Tags):
+	if not len(active):
+		setup([xObj, xProperty, xEnd, xEase, xDuration, Tags])
 	queue.append([xObj, xProperty, xEnd, xEase, xDuration, Tags])
+
+func wadd(xObj, xProperty, xEnd, xEase, xDuration, Tags): # wadd is "wait add", for when you dont want the lerping to start
+	queue.append([xObj, xProperty, xEnd, xEase, xDuration, Tags]) # automatically with the add.
 
 func start():
 	if not len(active):

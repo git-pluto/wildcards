@@ -7,8 +7,8 @@ func _ready() -> void:
 	var a = sprite("firefly")
 	sc.translate(a, Vector3(0,0,100))
 	var lep:additive_lerp = calc.setLerp("add")
-	lep.add(a,"scale",Vector2(0,2),calc.jump,1,["loop head"])
-	lep.add(a,"scale",Vector2(2,0),calc.jump,1,["loop tail",2, "parallel"])
+	lep.wadd(a,"scale",Vector2(0,2),calc.jump,1,["loop head"])
+	lep.wadd(a,"scale",Vector2(2,0),calc.jump,1,["loop tail",2, "parallel"])
 	lep.start()
 
 func movecamera(vec):
