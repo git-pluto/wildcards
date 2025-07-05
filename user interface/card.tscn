@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://qw68xt77n10a"]
 
 [ext_resource type="Texture2D" uid="uid://2pl1la8mcigt" path="res://critter sprites/blank.png" id="1_ndtcu"]
-[ext_resource type="Texture2D" uid="uid://l43skxdjpokf" path="res://critter sprites/decorator crab.png" id="2_ga155"]
+[ext_resource type="Texture2D" uid="uid://c3d4xmitvlgt4" path="res://critter sprites/decorator crab.png" id="2_ga155"]
 
 [node name="card" type="Node2D"]
 

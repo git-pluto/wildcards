@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://blogabf6axj4a"]
 
-[ext_resource type="Texture2D" uid="uid://ombbrwswcux5" path="res://critter sprites/bullfrog.png" id="1_u1f5q"]
+[ext_resource type="Texture2D" uid="uid://bfbps6mgm7ca4" path="res://critter sprites/bullfrog.png" id="1_u1f5q"]
 [ext_resource type="AnimationLibrary" uid="uid://chfs5lavnd067" path="res://display anims.res" id="2_2wsfx"]
 
 [node name="critter display" type="Node2D"]

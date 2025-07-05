@@ -14,6 +14,8 @@ enum propers {
 	position, scale, rotation
 }
 
+var count = 0
+
 signal step
 signal finish
 
@@ -25,18 +27,29 @@ func reading():
 		if g.t()-i[6] >= i[4]:
 			active.erase(i)
 	if not len(active):
-		if len(queue):
-			setup(queue.pop_front())
+		if queue.get(count)[5].has("loop tail"):
+			var a = queue.get(count)[5].find("loop tail")+1 # a is just the index of the number
+			if queue[count][5].get(a) > 0:
+				queue[count][5][a]-=1
+			if not queue[count][5].get(a) == 0:
+				while true:
+					if queue.get(count)[5].has("loop head"):
+						break
+					count-=1
+					assert(count >= 0, "Lerp ease Looping found no loop head")
+			else: count+=1
+		else: count+=1
+		if count < len(queue):
+			setup(queue.get(count).duplicate())
 			step.emit()
 		else:
 			finish.emit()
 			queue_free()
 
 func add(xObj, xProperty, xEnd, xEase, xDuration, Tags):
-	if not active[0]:
+	if not len(active):
 		setup([xObj, xProperty, xEnd, xEase, xDuration, Tags])
-	else:
-		queue.append([xObj, xProperty, xEnd, xEase, xDuration, Tags])
+	queue.append([xObj, xProperty, xEnd, xEase, xDuration, Tags])
 
 func setup(arr: Array):
 	match arr[1]:
@@ -51,11 +64,13 @@ func setup(arr: Array):
 			arr[2]*=PI/180
 		_:
 			print("invalid property")
-	arr[6] = g.t()
+	arr.append(g.t())
 	active.append(arr)
-	if len(queue):
-		if queue.front()[5].has("parallel"):
-			setup(queue.pop_front())
+	if count+1 < len(queue):
+		if queue.get(count+1)[5].has("parallel"):
+			count+=1
+			
+			setup(queue.get(count).duplicate())
 
 func kill():
 	finish.emit()
