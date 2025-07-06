@@ -4,6 +4,8 @@ class_name space_lerp
 # obj, property, end, ease, duration, tags, timestart
 
 func _process(delta: float) -> void:
+	if paused:
+		return
 	for i in active:
 		var a = lerp(0, 1,i[3].call((g.t()-i[6])/i[4]))-lerp(0, 1,i[3].call((g.t()-delta-i[6])/i[4]))
 		match i[1]:

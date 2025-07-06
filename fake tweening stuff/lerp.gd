@@ -3,12 +3,18 @@ class_name lerp_ease
 
 # obj, property, end, ease, duration, tags, timestart
 var active:Array[Array] = []
+
+var offtime = 0
+
 #var timestart: float
 #var obj: Node2D
 #var duration
 #var end
 #var eas
 #var property
+
+var paused = false
+
 var timescale = 1
 
 var queue:Array[Array] = []
@@ -89,3 +95,17 @@ func setup(arr: Array):
 func kill():
 	finish.emit()
 	queue_free()
+
+func pause_toggle():
+	if paused:
+		unpause()
+	else: pause()
+
+func pause():
+	paused = true
+	offtime = g.t()
+
+func unpause():
+	for i in active:
+		i[6]+= g.t() - offtime
+	paused = false
