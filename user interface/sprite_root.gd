@@ -14,7 +14,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
-		lep.pause_toggle()
+		#lep.pause_toggle()
+		lep.timescale(0.5)
 
 func movecamera(vec):
 	for i in stuff:

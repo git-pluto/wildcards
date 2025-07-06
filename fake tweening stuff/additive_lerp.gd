@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 	if paused:
 		return
 	for i in active:
-		var a = lerp(0, 1,i[3].call((g.t()-i[6])/i[4]))-lerp(0, 1,i[3].call((g.t()-delta-i[6])/i[4]))
+		var a = lerp(0, 1,i[3].call((g.t()-i[6])/i[4]))-lerp(0, 1,i[3].call((g.t()-i[6]-delta)/(i[4])))
 		match i[1]:
 			propers.scale:
 				i[0].scale += a*i[2]
@@ -20,3 +20,5 @@ func _process(delta: float) -> void:
 			propers.skew:
 				i[0].skew += a*i[2]
 	reading()
+
+# i have to increase the duration and adjust for timestart

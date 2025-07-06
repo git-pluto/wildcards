@@ -13,9 +13,9 @@ var offtime = 0
 #var eas
 #var property
 
-var paused = false
+var timescaler = 1
 
-var timescale = 1
+var paused = false
 
 var queue:Array[Array] = []
 enum propers {
@@ -85,6 +85,7 @@ func setup(arr: Array):
 		_:
 			print("invalid property")
 	arr.append(g.t())
+	arr[4]/=timescaler
 	active.append(arr)
 	if count+1 < len(queue):
 		if queue.get(count+1)[5].has("parallel"):
@@ -109,3 +110,9 @@ func unpause():
 	for i in active:
 		i[6]+= g.t() - offtime
 	paused = false
+
+func timescale(x:float):
+	for i in active:
+		i[6]-=((1-x)*(g.t()-i[6]))
+		i[4]/=x
+	timescaler*=x
