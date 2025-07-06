@@ -13,4 +13,6 @@ func _process(delta: float) -> void:
 				i[0].position *= a
 			propers.rotation:
 				i[0].rotation *= a
+			propers.skew:
+				i[0].skew *= a
 	reading()

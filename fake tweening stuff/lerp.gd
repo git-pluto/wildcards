@@ -9,9 +9,11 @@ var active:Array[Array] = []
 #var end
 #var eas
 #var property
+var timescale = 1
+
 var queue:Array[Array] = []
 enum propers {
-	position, scale, rotation
+	position, scale, rotation, skew
 }
 
 var count = 0
@@ -68,6 +70,11 @@ func setup(arr: Array):
 			arr[1] = propers.scale
 		"rotation_degrees":
 			arr[1] = propers.rotation
+			arr[2]*=PI/180
+		"skew":
+			arr[1] = propers.skew
+		"skew_degrees":
+			arr[1] = propers.skew
 			arr[2]*=PI/180
 		_:
 			print("invalid property")

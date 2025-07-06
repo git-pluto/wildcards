@@ -15,4 +15,6 @@ func _process(delta: float) -> void:
 				i[0].rotation += a*i[2]
 				if i[0].rotation_degrees < 0: i[0].rotation_degrees += 360
 				elif i[0].rotation_degrees > 360: i[0].rotation_degrees -= 360
+			propers.skew:
+				i[0].skew += a*i[2]
 	reading()

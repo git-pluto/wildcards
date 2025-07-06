@@ -4,11 +4,11 @@ var stuff = []
 
 func _ready() -> void:
 	await ready
-	var a = sprite("firefly")
+	var a = sprite("Lyrebird") # LEMBRAR DE ADICIONAR SKEW NOS LERPS PRA TER UMA ANIMAÇÃO DE SWAY
 	sc.translate(a, Vector3(0,0,100))
 	var lep:additive_lerp = calc.setLerp("add")
-	lep.wadd(a,"scale",Vector2(0,2),calc.jump,1,["loop head"])
-	lep.wadd(a,"scale",Vector2(2,0),calc.jump,1,["loop tail",2, "parallel"])
+	lep.wadd(a,"skew",30*PI/180,calc.jump,1,["loop head"])
+	lep.wadd(a,"skew",-30*PI/180,calc.jump,1,["loop tail",3])
 	lep.start()
 
 func movecamera(vec):
