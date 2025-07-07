@@ -24,7 +24,7 @@ func setup(arr: Array):
 			arr[2]*=PI/180
 		_:
 			print("invalid property")
-	arr[6] = g.t()
+	arr.append(g.t())
 	active.append(arr)
 	if len(queue):
 		if queue.front()[5].has("parallel"):

@@ -113,6 +113,7 @@ func unpause():
 
 func timescale(x:float):
 	for i in active:
-		i[6]-=((1-x)*(g.t()-i[6]))
+		var progress = (g.t()-i[6])/i[4]
+		i[6]-= (progress/x)-progress # hm... the equasions still give wrong results. how??
 		i[4]/=x
 	timescaler*=x
