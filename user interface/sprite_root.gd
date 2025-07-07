@@ -1,4 +1,5 @@
 extends Node2D
+const DISPLAY_OBJECT = preload("res://user interface/display_object.tscn")
 
 var stuff = []
 
@@ -30,7 +31,7 @@ func _ready() -> void:
 	objectinfocus = stuff[10]
 	
 	movecamera(Vector3(0,20,0))
-	spincamera(Vector2(0,-10*PI/180))
+	spincamera(Vector2(0,-5*PI/180))
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -50,18 +51,19 @@ func focuson(obj):
 func movecamera(vec):
 	for i in stuff:
 		var a:space_lerp = calc.setLerp("spc")
-		a.add(i,"translation",vec,calc.hio,1,[])
+		a.add(i,"translation",vec,calc.co,1,[])
 
 func spincamera(vec):
 	for i in stuff:
 		var a:space_lerp = calc.setLerp("spc")
-		a.add(i,"orbit",vec,calc.hio,1,[])
+		a.add(i,"orbit",vec,calc.co,1,[])
 
 func sprite(Xname):
-	var a:Sprite2D = Sprite2D.new()
+	var a:Display_obj = DISPLAY_OBJECT.instantiate()
 	add_child(a)
-	a.texture = load("res://critter sprites/"+Xname+".png")
-	a.set_script(load("res://user interface/display object.gd"))
+	a.sprite.texture = load("res://critter sprites/"+Xname+".png")
+	a.sprite.position += values.get_sprite_offset(Xname)
+	a.position += values.get_pivot_offset(Xname)
 	stuff.append(a)
 	a.pos.z+=5
 	a.scale*=100
@@ -71,7 +73,7 @@ func quicksprite(Xname, Xpos):
 	var a = sprite(Xname)
 	sc.translate(a, Xpos)
 	if Xpos.z == 100:
-		var b = matrix[0].back()
+		var b = back(matrix[0])
 		if b:
 			a.left = b
 			b.right = a
@@ -79,12 +81,23 @@ func quicksprite(Xname, Xpos):
 		matrix[1][len(matrix[0])].back = a
 		matrix[0].append(a)
 	else:
-		var b = matrix[1].back()
+		var b = back(matrix[1])
+		
 		if b:
 			a.left = b
 			b.right = a
 		matrix[1].append(a)
-	var lep= calc.setLerp("add")
-	lep.add(a,"skew",5*PI/180,calc.jump,1,["loop head"])
-	lep.add(a,"skew",-5*PI/180,calc.jump,1,["loop tail",-1])
+	var lep = calc.setLerp("add")
+	var lap = calc.setLerp("ite")
+	lep.add(a,"skew",2*PI/180,calc.jump,1,["loop head"])
+	lep.add(a,"skew",-2*PI/180,calc.jump,1,["loop tail",-1])
+	
+	#lap.add(a,"scale",Vector2(1,1),calc.li,0,[])
+	lap.add(a,"scale",Vector2(1,0.9),calc.sqi,0.5,["loop head"])
+	lap.add(a,"scale",Vector2(1,1/0.9),calc.sqo,0.5,["loop tail",-1])
 	return a
+
+func back(arr: Array):
+	if len(arr) == 0:
+		return null
+	return arr.back()

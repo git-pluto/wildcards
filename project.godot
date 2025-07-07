@@ -23,6 +23,7 @@ Global="*res://inteligence/global.gd"
 calc="*res://fake tweening stuff/calc.gd"
 g="*res://fake tweening stuff/global_timer.tscn"
 sc="*res://fake 3d stuff/space_calc.gd"
+values="*res://user interface/values library.gd"
 
 [display]
 

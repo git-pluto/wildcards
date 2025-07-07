@@ -48,11 +48,11 @@ func jump(a: float): # funcao harmonica que termina onde comecou
 	a = clamp(a,0,1)
 	return abs(sin(a*PI))
 
-func tci(a: float): # funcao duplo circular ease in
+func twoci(a: float): # funcao duplo circular ease in
 	a = clamp(a,0,1)
 	return ci(ci(a))
 
-func tco(a: float): # funcao duplo circular ease out
+func twoco(a: float): # funcao duplo circular ease out
 	a = clamp(a,0,1)
 	return co(co(a))
 
