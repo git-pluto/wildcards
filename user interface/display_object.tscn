@@ -5,4 +5,6 @@
 [node name="display object" type="Node2D"]
 script = ExtResource("1_1nwf0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pivot"]

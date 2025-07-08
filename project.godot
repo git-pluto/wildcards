@@ -45,4 +45,4 @@ f11={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.18359, 0.18359, 0.18359, 1)
+environment/defaults/default_clear_color=Color(0.775063, 0.775063, 0.775063, 1)

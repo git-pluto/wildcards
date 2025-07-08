@@ -13,11 +13,14 @@ var angles: Array = []
 var risen: bool = false
 var hovered
 
+func check_fall():
+	if not children().any(func(i): return i.mouseon):
+		disengage()
+
 func _process(_delta: float) -> void:
 	if risen:
 		pointer.look_at(get_global_mouse_position())
 		hover(check_angles(pointer.rotation_degrees+90))
-
 
 func engage(): # rise up and spread out
 	pivot_spread(spacing())

@@ -68,7 +68,7 @@ func sprite(Xname):
 	add_child(a)
 	a.sprite.texture = load("res://critter sprites/"+Xname+".png")
 	a.sprite.position += values.get_sprite_offset(Xname)
-	a.position += values.get_pivot_offset(Xname)
+	a.pivot.position += values.get_pivot_offset(Xname)
 	stuff.append(a)
 	a.pos.z+=5
 	a.scale*=100
@@ -94,12 +94,12 @@ func quicksprite(Xname, Xpos):
 		matrix[1].append(a)
 	var lep = calc.setLerp("add")
 	var lap = calc.setLerp("ite")
-	lep.add(a,"skew",2*PI/180,calc.jump,1,["loop head"])
-	lep.add(a,"skew",-2*PI/180,calc.jump,1,["loop tail",-1])
+	lep.add(a.pivot,"skew",2*PI/180,calc.jump,1,["loop head"])
+	lep.add(a.pivot,"skew",-2*PI/180,calc.jump,1,["loop tail",-1])
 	
 	#lap.add(a,"scale",Vector2(1,1),calc.li,0,[])
-	lap.add(a,"scale",Vector2(1,0.9),calc.sqi,0.5,["loop head"])
-	lap.add(a,"scale",Vector2(1,1/0.9),calc.sqo,0.5,["loop tail",-1])
+	lap.add(a.pivot,"scale",Vector2(1,0.9),calc.sqi,0.5,["loop head"])
+	lap.add(a.pivot,"scale",Vector2(1,1/0.9),calc.sqo,0.5,["loop tail",-1])
 	return a
 
 func back(arr: Array):
