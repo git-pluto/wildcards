@@ -15,6 +15,15 @@ const pivot_offset = {
 	"silverfish": Vector2(0,10)
 }
 
+const shadow_offset = {
+	"firefly": Vector2(0,45),
+	"Lyrebird": Vector2(0,0),
+	"pearl oyster": Vector2(0,8),
+	"nautilus": Vector2(0,30),
+	"giant snail": Vector2(0,23),
+	"bullfrog": Vector2(0,5),
+}
+
 func get_sprite_offset(key):
 	if sprite_offset.has(key):
 		return sprite_offset[key]
@@ -24,5 +33,11 @@ func get_sprite_offset(key):
 func get_pivot_offset(key):
 	if pivot_offset.has(key):
 		return pivot_offset[key]
+	else:
+		return Vector2(0,0)
+
+func get_shadow_offset(key):
+	if shadow_offset.has(key):
+		return shadow_offset[key]
 	else:
 		return Vector2(0,0)
