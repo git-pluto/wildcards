@@ -15,6 +15,8 @@ var names = ["bullfrog",
 "pearl oyster",
 "silverfish"]
 
+var lipepa:iterative_lerp
+
 var objectinfocus
 
 #(-30.0, 0.0, 105.0)
@@ -32,6 +34,9 @@ func _ready() -> void:
 	
 	movecamera(Vector3(0,20,0))
 	spincamera(Vector2(0,-5*PI/180))
+	
+	#lipepa = calc.setLerp("ite")
+	#lipepa.add(matrix[0][0],"scale",Vector2(2,2),calc.jump,0.5,["loop head", "loop tail", -1])
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):

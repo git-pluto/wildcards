@@ -27,8 +27,9 @@ var count = 0
 signal step
 signal finish
 
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	for i in active:
+		i[6] += (1-timescaler)*delta
 
 func reading():
 	for i in active:
@@ -113,7 +114,5 @@ func unpause():
 
 func timescale(x:float):
 	for i in active:
-		var progress = (g.t()-i[6])/i[4]
-		i[6]-= (progress/x)-progress # hm... the equasions still give wrong results. how??
-		i[4]/=x
+		i[6] += (1-timescaler)*get_process_delta_time()
 	timescaler*=x
