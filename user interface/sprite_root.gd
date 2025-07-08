@@ -1,5 +1,6 @@
 extends Node2D
 const DISPLAY_OBJECT = preload("res://user interface/display_object.tscn")
+@onready var hand: Hand = $"../hand"
 
 var stuff = []
 
@@ -62,6 +63,12 @@ func movecamera(vec):
 	for i in stuff:
 		var a:space_lerp = calc.setLerp("spc")
 		a.add(i,"translation",vec,calc.hio,1,[])
+	var b:space_lerp = calc.setLerp("spc")
+	b.add(hand,"translation",vec,calc.hio,1,[])
+	var c:space_lerp = calc.setLerp("spc")
+	#c.add(hand,"translation",Vector3.ZERO,calc.hio,0.2,[])
+	c.add(hand,"translation",-vec,calc.hio,1.25,[])
+	
 
 func spincamera(vec):
 	for i in stuff:

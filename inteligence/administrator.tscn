@@ -22,7 +22,7 @@ texture = ExtResource("2_dkf8r")
 script = ExtResource("2_8tk7u")
 
 [node name="hand" parent="." instance=ExtResource("3_f6d76")]
-position = Vector2(285, 226)
+position = Vector2(315, 292)
 scale = Vector2(2, 2)
 
 [node name="card" parent="hand/pivot" index="0" instance=ExtResource("4_dkf8r")]

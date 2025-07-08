@@ -6,6 +6,9 @@ var spread_tween: Tween
 var space_tween: Tween
 var pop_tweens = []
 
+var pos = Vector3(10,200,100)
+var haze = null
+
 @onready var pivot: Node2D = $pivot
 @onready var pointer: Node2D = $pointer
 

@@ -16,8 +16,7 @@ func translate(obj: Node2D, move: Vector3):
 	
 	if obj.pos.z <= 0: obj.visible = false
 	else: obj.visible = true
-	
-	obj.haze.modulate.a = (distance(obj.pos)/800)**1.6
+	if obj.haze: obj.haze.modulate.a = (distance(obj.pos)/800)**1.6
 
 func orbit(obj, angle: Vector2):
 	var anguloinicial = atan2(obj.pos.z,obj.pos.x)
