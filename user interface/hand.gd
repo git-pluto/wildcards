@@ -16,9 +16,21 @@ var angles: Array = []
 var risen: bool = false
 var hovered
 
+func grab(card: Node2D):
+	pointer.look_at(card.global_position)
+	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_parallel()
+	tween.tween_property(card,"rotation_degrees", pointer.rotation_degrees+90,0.5).set_ease(Tween.EASE_OUT)
+	tween.tween_property(card,"global_position", pivot.global_position,0.5).set_ease(Tween.EASE_IN)
+	await tween.finished
+	card.pivot.position = Vector2(0,-200)
+	card.reparent(pivot, true)
+	doangles()
+	if not check_fall(): engage()
+
 func check_fall():
 	if not children().any(func(i): return i.mouseon):
 		disengage()
+	return false
 
 func _process(_delta: float) -> void:
 	if risen:

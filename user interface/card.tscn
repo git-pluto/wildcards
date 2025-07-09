@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qw68xt77n10a"]
+[gd_scene load_steps=6 format=3 uid="uid://qw68xt77n10a"]
 
 [ext_resource type="Script" uid="uid://cmkipjogbvvcq" path="res://user interface/card.gd" id="1_b7b70"]
 [ext_resource type="Texture2D" uid="uid://2pl1la8mcigt" path="res://critter sprites/blank.png" id="1_ndtcu"]
 [ext_resource type="Texture2D" uid="uid://c3d4xmitvlgt4" path="res://critter sprites/decorator crab.png" id="2_ga155"]
+[ext_resource type="Texture2D" uid="uid://c4ordhdsfgqa0" path="res://critter sprites/backside.png" id="4_xo5gi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5gi"]
 size = Vector2(70, 92)
@@ -11,10 +12,9 @@ size = Vector2(70, 92)
 script = ExtResource("1_b7b70")
 
 [node name="pivot" type="Node2D" parent="."]
-position = Vector2(0, -200)
 
 [node name="shadow" type="Sprite2D" parent="pivot"]
-modulate = Color(0, 0, 0, 0.701961)
+modulate = Color(0, 0, 0, 0.364706)
 scale = Vector2(1.02, 1.015)
 texture = ExtResource("1_ndtcu")
 
@@ -27,9 +27,16 @@ position = Vector2(11, -13)
 texture = ExtResource("2_ga155")
 
 [node name="Area2D" type="Area2D" parent="pivot"]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/Area2D"]
 shape = SubResource("RectangleShape2D_xo5gi")
+
+[node name="Backside" type="Sprite2D" parent="pivot"]
+texture = ExtResource("4_xo5gi")
 
 [connection signal="mouse_entered" from="pivot/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="pivot/Area2D" to="." method="_on_area_2d_mouse_exited"]

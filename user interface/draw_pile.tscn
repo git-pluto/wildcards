@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yc0hwwc2iltf"]
+
+[ext_resource type="Script" uid="uid://eno8nnjrhmxj" path="res://user interface/draw_pile.gd" id="1_fk6t5"]
+
+[node name="draw pile" type="Node2D"]
+script = ExtResource("1_fk6t5")
