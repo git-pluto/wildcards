@@ -1,5 +1,6 @@
 extends Node2D
 
+var pile = []
 const CARD = preload("res://user interface/card.tscn")
 var timescale = 0.75
 
@@ -7,6 +8,12 @@ func _ready() -> void:
 	await ready
 	await get_tree().create_timer(0.2).timeout
 	generate()
+	var lep:additive_lerp = calc.setLerp("add")
+	lep.add(self,"position",Vector2(0,20),calc.hio,1*timescale,["loop head"])
+	lep.add(self,"position",Vector2(0,-20),calc.hio,1*timescale,["loop tail",-1])
+	var lap:additive_lerp = calc.setLerp("add")
+	lap.add(self,"rotation_degrees",5,calc.hio,1.5*timescale,["loop head"])
+	lap.add(self,"rotation_degrees",-5,calc.hio,1.5*timescale,["loop tail",-1])
 
 func generate():
 	for i in 20:
@@ -19,13 +26,18 @@ func create():
 	a.scale*=2.5
 	a.rotation_degrees+= randf_range(-1,5)
 	a.global_position.y-=get_child_count()*1
+	pile.append(a)
 	movecard(a)
 
 func movecard(card):
 	card.position += Vector2(-200,-400)
 	var lep:additive_lerp = calc.setLerp("add")
-	lep.add(card,"position",Vector2(200,400),calc.li,1*timescale,[])
+	lep.add(card,"position",Vector2(200,400),calc.sqo,1*timescale,[])
 	var lap:additive_lerp = calc.setLerp("add")
 	lap.add(card,"position",Vector2(-100,100),calc.co,0.25*timescale,[])
 	lap.add(card,"position",Vector2(200,-200),calc.hio,0.5*timescale,[])
 	lap.add(card,"position",Vector2(-100,100),calc.ci,0.25*timescale,[])
+
+func first():
+	if not len(pile): return null
+	return pile.pop_back()

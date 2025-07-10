@@ -17,19 +17,27 @@ var risen: bool = false
 var hovered
 
 func grab(card: Node2D):
+	if card == null: return
 	pointer.look_at(card.global_position)
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO).set_parallel()
 	tween.tween_property(card,"rotation_degrees", pointer.rotation_degrees+90,0.5).set_ease(Tween.EASE_OUT)
-	tween.tween_property(card,"global_position", pivot.global_position,0.5).set_ease(Tween.EASE_IN)
+	tween.tween_property(card,"global_position", pivot.global_position,0.7).set_ease(Tween.EASE_IN)
+	var twen = create_tween().set_trans(Tween.TRANS_EXPO)
+	twen.tween_property(card.pivot,"scale:x", 0,0.25).set_ease(Tween.EASE_IN)
+	twen.tween_callback(func():card.fliptoggle())
+	twen.tween_property(card.pivot,"scale:x", 1,0.25).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	card.pivot.position = Vector2(0,-200)
+	card.collision(true)
 	card.reparent(pivot, true)
+	card.scale = Vector2(1,1)
 	doangles()
 	if not check_fall(): engage()
 
 func check_fall():
 	if not children().any(func(i): return i.mouseon):
 		disengage()
+		return true
 	return false
 
 func _process(_delta: float) -> void:
