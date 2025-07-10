@@ -21,7 +21,7 @@ var swaylerps = []
 
 func _ready() -> void:
 	await ready
-	await get_tree().create_timer(0.2).timeout
+	#await get_tree().create_timer(0.2).timeout
 	generate()
 	dosway()
 	await get_tree().create_timer(0.05*pilesize+0.7).timeout

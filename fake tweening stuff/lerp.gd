@@ -1,7 +1,7 @@
 extends Node
 class_name lerp_ease
 
-# obj, property, end, ease, duration, tags, timestart
+# obj, property, end, ease, duration, tags, timestart, compensator
 var active:Array[Array] = []
 
 var offtime = 0
@@ -27,13 +27,19 @@ var count = 0
 signal step
 signal finish
 
-func _process(delta: float) -> void:
-	for i in active:
-		i[6] += (1-timescaler)*delta
+func _process(_delta: float) -> void:
+	pass
+
+func set_compensator(_a):
+	pass
+
+func compensate(_a):
+	pass
 
 func reading():
 	for i in active:
 		if g.t()-i[6] >= i[4]:
+			compensate(i)
 			active.erase(i)
 	if not len(active):
 		if queue.get(count)[5].has("loop tail"):
@@ -86,6 +92,7 @@ func setup(arr: Array):
 		_:
 			print("invalid property")
 	arr.append(g.t())
+	arr.append(set_compensator(arr[2]))
 	arr[4]/=timescaler
 	active.append(arr)
 	if count+1 < len(queue):
