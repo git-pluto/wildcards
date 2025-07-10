@@ -34,5 +34,3 @@ scale = Vector2(2, 2)
 [node name="team2" parent="logic" instance=ExtResource("7_jbqaw")]
 
 [node name="duels" type="Node" parent="logic"]
-
-[editable path="hand"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://qw68xt77n10a"]
+[gd_scene load_steps=5 format=3 uid="uid://qw68xt77n10a"]
 
 [ext_resource type="Script" uid="uid://cmkipjogbvvcq" path="res://user interface/card.gd" id="1_b7b70"]
 [ext_resource type="Texture2D" uid="uid://2pl1la8mcigt" path="res://critter sprites/blank.png" id="1_ndtcu"]
-[ext_resource type="Texture2D" uid="uid://c3d4xmitvlgt4" path="res://critter sprites/decorator crab.png" id="2_ga155"]
 [ext_resource type="Texture2D" uid="uid://c4ordhdsfgqa0" path="res://critter sprites/backside.png" id="4_xo5gi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5gi"]
@@ -24,7 +23,6 @@ texture = ExtResource("1_ndtcu")
 
 [node name="sprite" type="Sprite2D" parent="pivot/blank"]
 position = Vector2(11, -13)
-texture = ExtResource("2_ga155")
 
 [node name="Area2D" type="Area2D" parent="pivot"]
 collision_mask = 0

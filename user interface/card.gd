@@ -21,3 +21,7 @@ func fliptoggle():
 
 func collision(boo):
 	coll.disabled = not boo
+
+func spriteset(Xname):
+	var tex = load("res://critter sprites/"+Xname+".png")
+	sprite.texture = tex
