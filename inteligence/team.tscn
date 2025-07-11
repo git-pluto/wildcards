@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://itfxpgtbes0b"]
+[gd_scene load_steps=4 format=3 uid="uid://itfxpgtbes0b"]
 
 [ext_resource type="Script" uid="uid://dgextyr6xejf5" path="res://inteligence/team.gd" id="1_w03yu"]
+[ext_resource type="Script" uid="uid://cvt3kk8aqoakq" path="res://inteligence/deck.gd" id="2_qs0qt"]
+[ext_resource type="Script" uid="uid://cnq6s52d3v0ss" path="res://inteligence/hand.gd" id="3_do1xd"]
 
 [node name="team" type="Node"]
 script = ExtResource("1_w03yu")
 
 [node name="deck" type="Node" parent="."]
+script = ExtResource("2_qs0qt")
 
 [node name="hand" type="Node" parent="."]
+script = ExtResource("3_do1xd")
 
 [node name="field" type="Node" parent="."]
 

@@ -8,17 +8,9 @@ class_name teamclass
 @onready var discard: Node = $discard
 @onready var duels: Node = $"../duels"
 const DUEL = preload("res://inteligence/duel.tscn")
-const CRITTER_BODY = preload("res://critters/critter_body.tscn")
 
 var triggers = {}
 var points = 0
-
-func generate_deck(arr):
-	for i in arr:
-		var a = CRITTER_BODY.instantiate()
-		deck.add_child(a)
-		a.set_script(load("res://critters/"+i+".gd"))
-	admin.set_deck()
 
 func draw(): # move a card from the deck to the hand
 	if deck.get_child_count() > 0:

@@ -1,6 +1,7 @@
 extends Node
 
 @onready var draw_pile: Node2D = $"draw pile"
+@onready var hand: Hand = $hand
 
 var names = ["bullfrog",
 "cheerleader crab",
@@ -15,11 +16,8 @@ var names = ["bullfrog",
 func _ready() -> void:
 	await ready
 	await get_tree().create_timer(0.2).timeout
-	#$hand.doangles()
-	#$hand.disengage()
-	#for i in $hand/pivot.get_children():
-		#i.sprite.texture = load("res://critter sprites/"+names.pick_random()+".png")
-	$logic/team.generate_deck(["shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp",])
+
+	$logic/team.deck.generate(["shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp","shrimp",])
 	$"draw pile".set_and_draw()
 
 func _input(event: InputEvent) -> void:
@@ -27,7 +25,7 @@ func _input(event: InputEvent) -> void:
 		draw()
 
 func draw():
-	$hand.grab($"draw pile".first())
+	$logic/team.hand.draw($logic/team.deck.take_first())
 
 func set_deck():
 	draw_pile.generate($logic/team/deck.get_children())

@@ -1,18 +1,5 @@
 extends Node2D
 
-#var names = ["bullfrog",
-#"cheerleader crab",
-#"decorator crab",
-#"firefly",
-#"giant snail",
-#"Lyrebird",
-#"nautilus",
-#"pearl oyster",
-#"silverfish"]
-
-#var pilesize = 25
-
-var pile = []
 const CARD = preload("res://user interface/card.tscn")
 var timescale = 0.75
 @onready var admin: Node = $".."
@@ -20,9 +7,6 @@ var timescale = 0.75
 var swaylerps = []
 
 func set_and_draw() -> void:
-	#await ready
-	#await get_tree().create_timer(0.2).timeout
-	#generate()
 	dosway()
 	await get_tree().create_timer(0.05*get_child_count()+0.7).timeout
 	var a = func():
@@ -58,11 +42,9 @@ func create(i):
 	var a = CARD.instantiate()
 	add_child(a)
 	a.scale*=2.5
-	#a.spriteset(names.pick_random())
 	a.morph(i)
 	a.rotation_degrees+= randf_range(-1,5)
 	a.global_position.y-=get_child_count()*1
-	pile.append(a)
 	a.visible = false
 
 func movecard(card):
@@ -73,7 +55,3 @@ func movecard(card):
 	lap.add(card,"position",Vector2(-100,100),calc.co,0.25*timescale,[])
 	lap.add(card,"position",Vector2(200,-200),calc.hio,0.5*timescale,[])
 	lap.add(card,"position",Vector2(-100,100),calc.ci,0.25*timescale,[])
-
-func first():
-	if not len(pile): return null
-	return pile.pop_back()

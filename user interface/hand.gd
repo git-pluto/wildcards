@@ -1,6 +1,8 @@
 extends Node2D
 class_name Hand
 
+@onready var admin: Node = $".."
+
 var height_tween: Tween
 var spread_tween: Tween
 var space_tween: Tween
@@ -35,7 +37,9 @@ func grab(card: Node2D):
 	card.scale = Vector2(1,1)
 	card.position = Vector2(0,0)
 	doangles()
-	if not check_fall(): engage()
+	if not check_fall():
+		engage()
+		hover(child_count()-1)
 
 func check_fall():
 	if not children().any(func(i): return i.mouseon):
