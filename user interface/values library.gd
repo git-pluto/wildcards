@@ -12,7 +12,8 @@ const pivot_offset = {
 	"firefly": Vector2(0,-15),
 	"cheerleader crab": Vector2(0,10),
 	"decorator crab": Vector2(0,10),
-	"silverfish": Vector2(0,10)
+	"silverfish": Vector2(0,10),
+	"chrysalis": Vector2(0,-10)
 }
 
 const shadow_offset = {
@@ -22,6 +23,7 @@ const shadow_offset = {
 	"nautilus": Vector2(0,30),
 	"giant snail": Vector2(0,23),
 	"bullfrog": Vector2(0,5),
+	"chrysalis": Vector2(0,50)
 }
 
 func get_sprite_offset(key):

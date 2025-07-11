@@ -14,8 +14,9 @@ func translate(obj: Node2D, move: Vector3):
 	
 	#obj.z_index = -distance(obj.pos)*1000
 	
-	if obj.pos.z <= 0: obj.visible = false
-	else: obj.visible = true
+	obj.modulate.a = clamp(obj.pos.z, 0, 50)/50
+	#if obj.pos.z <= 0: obj.visible = false
+	#else: obj.visible = true
 	if obj.haze: obj.haze.modulate.a = (distance(obj.pos)/800)**1.6
 
 func orbit(obj, angle: Vector2):

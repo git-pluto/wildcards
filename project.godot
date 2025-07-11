@@ -14,8 +14,7 @@ config/name="wildcards again"
 run/main_scene="res://inteligence/administrator.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.0728426, 0.0728426, 0.0728426, 1)
-boot_splash/image="res://critter sprites/decorator crab.png"
-config/icon="res://critter sprites/decorator crab.png"
+config/icon="uid://uhjam4x3u85f"
 
 [autoload]
 

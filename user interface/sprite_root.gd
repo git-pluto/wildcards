@@ -14,7 +14,9 @@ var names = ["bullfrog",
 "Lyrebird",
 "nautilus",
 "pearl oyster",
-"silverfish"]
+"silverfish",
+]
+
 
 var lipepa:iterative_lerp
 
@@ -22,20 +24,23 @@ var objectinfocus
 
 #(-30.0, 0.0, 105.0)
 
+# between rows: Vector3(-40, 30, 150)
+# between peers: Vector3(80, 0, 20)
+
 func _ready() -> void:
 	await ready
 	
 	var slope = 30
 	# tilt of 50x per 150y
 	for i in 5:
-		quicksprite(names.pick_random(),Vector3((i*80)+80,slope*-2,400+i*20),4)
+		quicksprite(names.pick_random(),Vector3((i*80)+60,slope*-2,400+i*20),4)
 	for i in 5:
-		quicksprite(names.pick_random(),Vector3((i*80)+30,slope*-1,250+i*20),3)
+		quicksprite(names.pick_random(),Vector3((i*80)+20,slope*-1,250+i*20),3)
 	for i in 5:
 		var a = quicksprite(names.pick_random(),Vector3((i*80)-20,0,100+i*20),2)
 		a.scale.x*=-1
 	for i in 5:
-		var a = quicksprite(names.pick_random(),Vector3((i*80)-70,slope,-50+i*20),1)
+		var a = quicksprite(names.pick_random(),Vector3((i*80)-60,slope,-50+i*20),1)
 		a.scale.x*=-1
 	
 	objectinfocus = matrix[1][0]
