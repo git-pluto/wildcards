@@ -6,6 +6,8 @@ extends Node2D
 
 @onready var coll: CollisionShape2D = $pivot/Area2D/CollisionShape2D
 
+var critter_brain
+
 var mouseon = false
 
 func _on_area_2d_mouse_entered() -> void:
@@ -22,6 +24,11 @@ func fliptoggle():
 func collision(boo):
 	coll.disabled = not boo
 
-func spriteset(Xname):
-	var tex = load("res://critter sprites/"+Xname+".png")
-	sprite.texture = tex
+#func spriteset(Xname):
+	#var tex = load("res://critter sprites/"+Xname+".png")
+	#sprite.texture = tex
+
+func morph(brain):
+	sprite.texture = brain.tex
+	critter_brain = brain
+	brain.interface_element = self

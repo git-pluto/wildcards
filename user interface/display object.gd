@@ -15,6 +15,8 @@ var right = null
 
 @onready var pivot: Node2D = $pivot
 
+var critter_brain
+
 func spriteset(Xname):
 	var tex = load("res://critter sprites/"+Xname+".png")
 	sprite.texture = tex

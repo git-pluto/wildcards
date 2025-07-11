@@ -2,6 +2,9 @@ extends Node
 class_name critter_body
 
 @onready var team: teamclass = $"../.."
+var tex = preload("res://critter sprites/shrimp.png")
+
+var interface_element
 
 var duel: duel_class
 

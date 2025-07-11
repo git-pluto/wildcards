@@ -1,16 +1,16 @@
 extends Node2D
 
-var names = ["bullfrog",
-"cheerleader crab",
-"decorator crab",
-"firefly",
-"giant snail",
-"Lyrebird",
-"nautilus",
-"pearl oyster",
-"silverfish"]
+#var names = ["bullfrog",
+#"cheerleader crab",
+#"decorator crab",
+#"firefly",
+#"giant snail",
+#"Lyrebird",
+#"nautilus",
+#"pearl oyster",
+#"silverfish"]
 
-var pilesize = 25
+#var pilesize = 25
 
 var pile = []
 const CARD = preload("res://user interface/card.tscn")
@@ -19,12 +19,12 @@ var timescale = 0.75
 
 var swaylerps = []
 
-func _ready() -> void:
-	await ready
-	await get_tree().create_timer(0.2).timeout
-	generate()
+func set_and_draw() -> void:
+	#await ready
+	#await get_tree().create_timer(0.2).timeout
+	#generate()
 	dosway()
-	await get_tree().create_timer(0.05*pilesize+0.7).timeout
+	await get_tree().create_timer(0.05*get_child_count()+0.7).timeout
 	var a = func():
 		for i in 5:
 			admin.draw()
@@ -46,20 +46,24 @@ func dosway():
 	swaylerps[1].add(self,"rotation_degrees",5,calc.hio,1.5*timescale,["loop head"])
 	swaylerps[1].add(self,"rotation_degrees",-5,calc.hio,1.5*timescale,["loop tail",-1])
 
-func generate():
-	for i in pilesize:
-		create()
+func generate(arr):
+	for i in arr:
+		create(i)
+	for i in get_children():
+		i.visible = true
+		movecard(i)
 		await get_tree().create_timer(0.05).timeout
 
-func create():
+func create(i):
 	var a = CARD.instantiate()
 	add_child(a)
 	a.scale*=2.5
-	a.spriteset(names.pick_random())
+	#a.spriteset(names.pick_random())
+	a.morph(i)
 	a.rotation_degrees+= randf_range(-1,5)
 	a.global_position.y-=get_child_count()*1
 	pile.append(a)
-	movecard(a)
+	a.visible = false
 
 func movecard(card):
 	card.position += Vector2(-200,-400)
