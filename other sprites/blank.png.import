@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4ordhdsfgqa0"
-path="res://.godot/imported/backside.png-533cb5506140e538acaebe10f670a46d.ctex"
+uid="uid://2pl1la8mcigt"
+path="res://.godot/imported/blank.png-af563e226251db0f76277e813cf12b82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://critter sprites/backside.png"
-dest_files=["res://.godot/imported/backside.png-533cb5506140e538acaebe10f670a46d.ctex"]
+source_file="res://other sprites/blank.png"
+dest_files=["res://.godot/imported/blank.png-af563e226251db0f76277e813cf12b82.ctex"]
 
 [params]
 

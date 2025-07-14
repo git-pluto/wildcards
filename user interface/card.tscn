@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://qw68xt77n10a"]
 
 [ext_resource type="Script" uid="uid://cmkipjogbvvcq" path="res://user interface/card.gd" id="1_b7b70"]
-[ext_resource type="Texture2D" uid="uid://2pl1la8mcigt" path="res://critter sprites/blank.png" id="1_ndtcu"]
-[ext_resource type="Texture2D" uid="uid://c4ordhdsfgqa0" path="res://critter sprites/backside.png" id="4_xo5gi"]
+[ext_resource type="Texture2D" uid="uid://2pl1la8mcigt" path="res://other sprites/blank.png" id="1_ndtcu"]
+[ext_resource type="Texture2D" uid="uid://c4ordhdsfgqa0" path="res://other sprites/backside.png" id="4_xo5gi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo5gi"]
 size = Vector2(70, 92)

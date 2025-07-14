@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1hvn6phgxli4"]
+
+[ext_resource type="Script" uid="uid://c5x7q3gh7lvtf" path="res://other sprites/smokescreen.gd" id="1_t7gxb"]
+
+[node name="smokescreen" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_t7gxb")

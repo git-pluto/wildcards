@@ -3,16 +3,6 @@ extends Node
 @onready var draw_pile: Node2D = $"draw pile"
 @onready var hand: Hand = $hand
 
-var names = ["bullfrog",
-"cheerleader crab",
-"decorator crab",
-"firefly",
-"giant snail",
-"Lyrebird",
-"nautilus",
-"pearl oyster",
-"silverfish"]
-
 func _ready() -> void:
 	await ready
 	await get_tree().create_timer(0.2).timeout

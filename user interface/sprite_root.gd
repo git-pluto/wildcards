@@ -32,14 +32,14 @@ func _ready() -> void:
 	
 	var slope = 30
 	# tilt of 50x per 150y
-	for i in 5:
+	for i in 1:
 		quicksprite(names.pick_random(),Vector3((i*80)+60,slope*-2,400+i*20),4)
-	for i in 5:
+	for i in 1:
 		quicksprite(names.pick_random(),Vector3((i*80)+20,slope*-1,250+i*20),3)
-	for i in 5:
+	for i in 1:
 		var a = quicksprite(names.pick_random(),Vector3((i*80)-20,0,100+i*20),2)
 		a.scale.x*=-1
-	for i in 5:
+	for i in 1:
 		var a = quicksprite(names.pick_random(),Vector3((i*80)-60,slope,-50+i*20),1)
 		a.scale.x*=-1
 	
@@ -65,15 +65,15 @@ func focuson(obj):
 	objectinfocus = obj
 
 func movecamera(vec):
-	for i in stuff:
-		var a:space_lerp = calc.setLerp("spc")
-		a.add(i,"translation",vec,calc.hio,1,[])
+	var a:camera_lerp = calc.setLerp("cam")
+	a.add(self,"translation",vec,calc.hio,1,[])
+	#for i in stuff:
+		#var a:space_lerp = calc.setLerp("spc")
+		#a.add(i,"translation",vec,calc.hio,1,[])
 	var b:space_lerp = calc.setLerp("spc")
-	b.add(hand,"translation",vec,calc.hio,1,[])
+	b.add(hand,"translation",vec,calc.hio,1.5,[])
 	var c:space_lerp = calc.setLerp("spc")
-	#c.add(hand,"translation",Vector3.ZERO,calc.hio,0.2,[])
-	c.add(hand,"translation",-vec,calc.hio,1.25,[])
-	
+	c.add(hand,"translation",-vec,calc.hio,1.6,[])
 
 func spincamera(vec):
 	for i in stuff:
@@ -128,13 +128,14 @@ func quicksprite(Xname, Xpos, row):
 		_:
 			print("somethings wrong")
 	
-	
 	var lep = calc.setLerp("add")
 	var lap = calc.setLerp("ite")
 	lep.add(a.pivot,"skew",2*PI/180,calc.jump,1,["loop head"])
 	lep.add(a.pivot,"skew",-2*PI/180,calc.jump,1,["loop tail",-1])
 	lap.add(a.pivot,"scale",Vector2(1,0.9),calc.sqi,0.5,["loop head"])
 	lap.add(a.pivot,"scale",Vector2(1,1/0.9),calc.sqo,0.5,["loop tail",-1])
+	
+	a.add_child(load("res://other sprites/smokescreen.tscn").instantiate())
 	return a
 
 func back(arr: Array):
